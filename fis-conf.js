@@ -4,10 +4,10 @@ const APP = 'tpl'; // APP的名称，根据项目的实际情况来制定
 const lc_root = '/home/lee/www'; //本地网站目录
 const lc_url = '/';
 //QA环境
-const qa_tpl_receiver = 'http://oranzh.cc:8080/receiver.php';
-const qa_img_receiver = 'http://oranzh.cc:8080/receiver4.php';
-const qa_tpldir = '/home/lee/sd/' + APP;
-const qa_cdn = '//img.oranzh.cc/';
+const qa_tpl_receiver = 'http://fis.xiaohui.li/receiver.php';
+const qa_img_receiver = 'http://fis.xiaohui.li/receiver4.php';
+const qa_tpldir = '/home/i/sd/' + APP;
+const qa_cdn = '//fis.oranzh.cc/';
 const qa_webroot = APP;
 const qa_url = '/' + APP; 
 
@@ -77,27 +77,6 @@ fis
     url: APP + '/static$0'
   });
 
-// 本地测试机联调环境配置
-fis
-  .media('qb')
-  .match('**', {
-    useHash: true,
-    domain: qb_cdn
-  })
-  .match('*.tpl', {
-    deploy: fis.plugin('http-push', {
-      receiver: qb_tpl_receiver,
-      to: qb_tpldir
-    }),
-    useHash: false
-  })
-  .match('*.{woff,ttf,woff2,otf,eot,svg,png,jpg,gif,css,js}', {
-    deploy: fis.plugin('http-push', {
-      receiver: qb_img_receiver,
-      to: APP + '/static'
-    }),
-    url: APP + '/static$0'
-  });
 
 
 
