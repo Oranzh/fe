@@ -7,7 +7,7 @@ const lc_url = '/';
 const qa_tpl_receiver = 'http://fis.xiaohui.li/receiver.php';
 const qa_img_receiver = 'http://fis.xiaohui.li/receiver4.php';
 const qa_tpldir = '/home/i/sd/' + APP;
-const qa_cdn = '//fis.oranzh.cc/';
+const qa_cdn = '//fis.oranzh.cc';
 const qa_webroot = APP;
 const qa_url = '/' + APP; 
 
@@ -72,9 +72,9 @@ fis
   .match('*.{woff,ttf,woff2,otf,eot,svg,png,jpg,gif,css,js}', {
     deploy: fis.plugin('http-push', {
       receiver: qa_img_receiver,
-      to: APP + '/static'
+      to: '/static'
     }),
-    url: APP + '/static$0'
+    url: '/static$0'
   });
 
 
